@@ -1,0 +1,1 @@
+Generate a structured Markdown snapshot of this task's current state. Include modified files, unresolved bugs, environment dependencies, and the exact next steps
