@@ -7,14 +7,20 @@ Save information to Obsidian notes.
 
 1. **Determine content**: If `$ARGUMENTS` is provided, use it as the topic/content to note down. If empty, identify the most recent meaningful piece of information from the conversation.
 
+___
+
 2. **Search existing notes**: Use subagents in parallel to:
    - List files in the Obsidian vault using `mcp__mcp-obsidian__obsidian_list_files_in_vault` and relevant subdirectories
    - Search for related content using `mcp__mcp-obsidian__obsidian_simple_search` with keywords from the topic
+
+___
 
 3. **Decide where to place the note**:
    - Look at the vault's directory structure and figure out which directory the note belongs in based on its topic (e.g. a distributed systems note goes in `4051/Notes/`, not the vault root)
    - If an existing note closely matches the topic, **update** it by appending or patching
    - If no existing note matches, **create** a new note in the most appropriate directory
+
+___
 
 4. **Write the note**:
    - Write **full theory explanations**, not summaries or condensed bullet points
@@ -31,9 +37,13 @@ Save information to Obsidian notes.
      - **Gotchas & Surprises** — unexpected behaviors, undocumented quirks, things that weren't in the docs or that contradicted expectations.
      - These sections are optional — only include them when the conversation involved debugging, troubleshooting, onboarding, or exploring something new where genuine learnings and misconceptions came up. Don't force them for straightforward theory notes.
 
+___
+
 5. **Link only when relevant**:
    - Only add `[[wiki links]]` if the linked note is directly related to the content
    - Do NOT link to notes just because they share a parent directory or broad topic
    - Only backlink from other notes if the connection is genuinely useful for navigation
+
+___
 
 6. **Confirm**: Tell the user what was created/updated and which notes were linked (if any).
