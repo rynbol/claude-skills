@@ -20,6 +20,7 @@ Custom skills and slash commands for [Claude Code](https://claude.ai/code).
 | **/leetcode** | Updates a LeetCode checklist in Obsidian with problem status, approach, complexity, and attempt history. | Obsidian MCP |
 | **/leetcode-diary** | Appends an honest interview readiness reflection to an Interview Diary note in Obsidian. | Obsidian MCP |
 | **/search-sessions** | Searches past Claude Code session history by metadata or full message content. | search-sessions CLI |
+| **/handover** | Generates a structured Markdown snapshot of the current task state — modified files, unresolved bugs, environment dependencies, and exact next steps. | None |
 
 ## Setup
 
