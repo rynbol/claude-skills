@@ -22,6 +22,10 @@ Custom skills and slash commands for [Claude Code](https://claude.ai/code).
 | **/search-sessions** | Searches past Claude Code session history by metadata or full message content. | search-sessions CLI |
 | **/handover** | Generates a structured Markdown snapshot of the current task state — modified files, unresolved bugs, environment dependencies, and exact next steps. | None |
 
+## MCP Servers
+
+Setup instructions for all MCP servers used by these skills (Obsidian, Atlassian, GitHub, Playwright, Canva, NotebookLM, etc.) live in [`mcp/README.md`](./mcp/README.md).
+
 ## Setup
 
 ### 1. Install skills
