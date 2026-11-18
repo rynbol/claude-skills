@@ -1,0 +1,6 @@
+{
+  "name": "cache-timer",
+  "version": "0.1.0",
+  "description": "Shows how long the prompt cache of the main conversation stays warm",
+  "types": "./types/index.d.ts"
+}

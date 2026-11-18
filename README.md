@@ -22,6 +22,63 @@ Custom skills and slash commands for [Claude Code](https://claude.ai/code).
 | **/search-sessions** | Searches past Claude Code session history by metadata or full message content. | search-sessions CLI |
 | **/handover** | Generates a structured Markdown snapshot of the current task state — modified files, unresolved bugs, environment dependencies, and exact next steps. | None |
 
+## Mods and Status Line
+
+| Mod | Description | Prerequisites |
+|---|---|---|
+| **cache-timer** | Shows how long the prompt cache stays warm, in a row above the prompt. A small face is awake while the cache is warm, sleepy in the last 10 minutes, and asleep when the cache has expired. When you view a subagent, the row shows that subagent's cache. | python3 |
+
+The mod reads only the local session log under `~/.claude/projects/`. It makes no model calls. It redraws when the shown minute changes and runs its script once per turn.
+
+### Install cache-timer
+
+At the prompt of a Claude Code terminal session:
+
+```
+/plugin install cache-timer --marketplace rynbol/claude-skills
+```
+
+Answer `y` to add the marketplace, then pick a scope. From a shell:
+
+```bash
+claude plugin install cache-timer --marketplace rynbol/claude-skills
+```
+
+In the desktop app, `/plugin` does not run. Click **+** next to the prompt box, then **Plugins**, **Add marketplace** with `rynbol/claude-skills`, then **Add plugin**.
+
+### ccstatusline layout
+
+[`statusline/ccstatusline/settings.json`](./statusline/ccstatusline/settings.json) is a three-line [ccstatusline](https://github.com/sirmalloc/ccstatusline) layout:
+
+1. Model, context bar, directory, git status, thinking effort
+2. Session usage, reset time, weekly usage, weekly reset time
+3. Cache timer (`● cache 41m left`)
+
+The cache timer entry runs `~/.claude/mods/cache-timer/scripts/cache-timer.py --statusline`. `/plugin install` does not put the script at that path, so link it from your clone (Setup, step 1):
+
+```bash
+npm install -g ccstatusline
+mkdir -p ~/.claude/mods ~/.config/ccstatusline
+ln -s ~/claude-skills/mods/cache-timer ~/.claude/mods/cache-timer
+
+# This replaces your ccstatusline layout. Back up your own settings.json first.
+cp ~/claude-skills/statusline/ccstatusline/settings.json ~/.config/ccstatusline/settings.json
+```
+
+Then add this to `~/.claude/settings.json`:
+
+```json
+"statusLine": {
+  "type": "command",
+  "command": "ccstatusline",
+  "refreshInterval": 60
+}
+```
+
+Use the global `ccstatusline` command, not `npx ccstatusline@latest`. Claude Code runs the command on every refresh.
+
+Tested on macOS with Claude Code 2.1.323 and ccstatusline 2.2.30.
+
 ## MCP Servers
 
 Setup instructions for all MCP servers used by these skills (Obsidian, Atlassian, GitHub, Playwright, Canva, NotebookLM, etc.) live in [`mcp/README.md`](./mcp/README.md).

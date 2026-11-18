@@ -1,0 +1,11 @@
+{
+  "name": "claude-skills",
+  "owner": { "name": "rynbol" },
+  "plugins": [
+    {
+      "name": "cache-timer",
+      "source": "./mods/cache-timer",
+      "description": "Shows how long the prompt cache of the main conversation stays warm"
+    }
+  ]
+}
