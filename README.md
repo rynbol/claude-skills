@@ -28,7 +28,7 @@ Custom skills and slash commands for [Claude Code](https://claude.ai/code).
 |---|---|---|
 | **cache-timer** | Shows how long the prompt cache stays warm, in a row above the prompt. A small face is awake while the cache is warm, sleepy in the last 10 minutes, and asleep when the cache has expired. When you view a subagent, the row shows that subagent's cache. | python3 |
 
-The mod reads only the local session log under `~/.claude/projects/`. It makes no model calls. It redraws when the shown minute changes and runs its script once per turn.
+The mod reads only the local session log under `~/.claude/projects/`. It makes no model calls. It runs its script when a session starts and after each turn. The face changes frame every 2 seconds.
 
 ### Install cache-timer
 
